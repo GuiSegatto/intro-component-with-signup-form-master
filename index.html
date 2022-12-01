@@ -11,6 +11,7 @@
   <title>Frontend Mentor | Intro component with sign up form</title>
 
   <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -21,17 +22,17 @@
         understanding how developers think is invaluable.</p>
     </div>
 
-    <div class="sign-p-wrapper">
+    <div class="sign-up-wrapper">
       <div class="header-wrapper">
-        <p>Try it free 7 days then $20/mo. thereafter</p>
+        <p><span>Try it free 7 days</span> then $20/mo. thereafter</p>
       </div>
 
-      <div class="sign-up-container">
+      <div class="sign-up-container" method="post">
         <form action="" name="sign-up-form">
-          <input type="text" name="first-name" id="first-name" minlength="3" maxlength="25" placeholder="First Name">
+          <input type="text" name="firstName" id="firstName" minlength="3" maxlength="25" placeholder="First Name">
           <p class="error first-name-error"></p>
 
-          <input type="text" name="last-name" id="last-name" minlength="3" maxlength="25" placeholder="Last Name">
+          <input type="text" name="lastName" id="lastName" minlength="3" maxlength="25" placeholder="Last Name">
           <p class="error last-name-error"></p>
 
           <input type="email" name="mail" id="mail" maxlenght="100" placeholder="Email Address">
@@ -49,7 +50,7 @@
   </main>
 
 
-  <footer>
+  <footer hidden>
     <p class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
       Coded by <a href="#">Your Name Here</a>.
