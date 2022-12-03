@@ -33,3 +33,8 @@ The designs were created to the following widths:
 
 - Family: [Poppins](https://fonts.google.com/specimen/Poppins)
 - Weights: 400, 500, 600, 700
+
+- Regular - 400
+- Medium - 500
+- Semi-bold - 600
+- Bold - 700

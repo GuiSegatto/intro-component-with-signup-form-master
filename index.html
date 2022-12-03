@@ -10,7 +10,7 @@
 
   <title>Frontend Mentor | Intro component with sign up form</title>
 
-  <script defer src="script2.js"></script>
+  <script defer src="script.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -28,18 +28,18 @@
       </div>
 
       <div class="sign-up-container">
-        <form action="" name="sign-up-form" method="post">
-          <input type="text" name="firstName" id="firstName" minlength="3" maxlength="25" placeholder="First Name" required>
-          <p class="error first-name-error"></p>
+        <form action="" name="sign-up-form" method="post" novalidate>
+          <input type="text" name="firstName" id="firstName" placeholder="First Name">
+          <label for="firstName" class="error first-name-error"></label>
 
-          <input type="text" name="lastName" id="lastName" minlength="3" maxlength="25" placeholder="Last Name" required>
-          <p class="error last-name-error"></p>
+          <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+          <label for="lastName" class="error last-name-error"></label>
 
-          <input type="email" name="mail" id="mail" maxlenght="100" placeholder="Email Address" required>
-          <p class="error email-error"></p>
+          <input type="email" name="mail" id="mail" placeholder="Email Address">
+          <label for="mail" class="error email-error"></label>
 
-          <input type="password" name="password" id="password" minlength="8" maxlength="50" placeholder="Password" required>
-          <p class="error password-error"></p>
+          <input type="password" name="password" id="password" placeholder="Password">
+          <label for="password" class="error password-error"></label>
 
           <input type="submit" value="Claim your free trial" class="submit-button">
         </form>
