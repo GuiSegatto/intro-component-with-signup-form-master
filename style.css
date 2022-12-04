@@ -25,6 +25,7 @@ body {
 main {
     width: calc(100% - 60px);
     margin: auto 0 0;
+    max-width: 365px;
 }
 
 footer {
@@ -33,6 +34,7 @@ footer {
     margin: auto 0 0.25rem;
     text-align: center;
     padding-top: 0.85rem;
+    max-width: 365px;
 }
 
 /* Details */
@@ -130,4 +132,72 @@ input::placeholder {
 
 .error.display-error{
     display: block;
+}
+
+
+@media only screen and (min-width: 900px) {
+
+body {
+    background-image: url(./images/bg-intro-desktop.png);
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 77%;
+    max-width: none;
+}
+
+
+/* Details */
+.details-wrapper {
+    width: 53%;
+    word-wrap: break-word;
+    padding: 0 4.5rem 0 0;
+    text-align: left;
+}
+
+.details-wrapper h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+    width: 80%;
+    margin: 0 0 2rem;
+}
+
+/* "header" */
+.header-wrapper {
+    margin-bottom: 1.5rem;
+}
+
+/* Signup Container */
+.sign-up-wrapper {
+    width: 47%;
+}
+
+.sign-up-container {
+    padding: 2rem 2.5rem;
+}
+
+.sign-up-container input {
+    padding: 1rem;
+    margin: 0 0 1.25rem;
+}
+
+.terms-of-service {
+    font-size: 0.70rem;
+}
+
+.error {
+    margin: -0.938rem 0 1rem;
+    font-size: 0.70rem;
+}
+
+.sign-up-container .submit-button{
+    cursor: pointer
+}
+
+.sign-up-container .submit-button:hover{
+    background-color: hsl(154, 65%, 60%);
+}
 }
