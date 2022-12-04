@@ -1,42 +1,65 @@
 
-function showError(errorElementClassName, errorMessage){ 
-  document.querySelector("."+errorElementClassName).classList.add("display-error") // Ativa um display block no css adicionando a classe display-error
-  document.querySelector("."+errorElementClassName).innerHTML = errorMessage; // Adiciona dentro da tag que estava escondida a mensagem de erro
+function showError(errorElementClassName, errorMessage) { // Recebe os valores da função que realiza as verificações
+  document.querySelector("." + errorElementClassName).classList.add("display-error") // Ativa um display block no css adicionando a classe display-error
+  document.querySelector("." + errorElementClassName).innerHTML = errorMessage; // Adiciona dentro da tag que estava escondida a mensagem de erro
 }
 
-function clearError(){
+function clearError() { // Limpa os erros
   let errors = document.querySelectorAll(".error"); // retorna todas as classes como um array
-  for(let error of errors){ // Percore o array retornado de "errors", definindo cada elemento para "error"
-      error.classList.remove("display-error"); // Removerá a classe "display-error" de cada erro
+  for (let error of errors) { // Percore o array retornado de "errors", definindo cada elemento para "error"
+    error.classList.remove("display-error"); // Removerá a classe "display-error" de cada erro
   }
 }
 
 
-
+// retorna nosso formulario e define uma variavel
 const form = document.forms['sign-up-form'];
-form.addEventListener("submit", validateForm);
 
-function validateForm(event) {
+// Retorna nossos inputs e define o valor para as variaveis
+const firstName = document.querySelector("#firstName")
+const lastName = document.querySelector("#lastName")
+const email = document.querySelector("#mail")
+const password = document.querySelector("#password")
+
+// Adiciona evento que quando o formulário for enviado irá chamar as funções que irão realizar as verificações
+form.addEventListener('submit', function (event) {
   event.preventDefault();
-  clearError(); // Executa a função clearError que irá remover todas as classes error antes de fazer as verificações
+  clearError();
 
-  if (form.firstName.value.trim() === ""){
-      showError("first-name-error", "First Name cannot be empty") // Envia para a função "showError" o nome da classe, e a mensangem que irá aparecer
-      return false; // Irá parar a função
-  };
+  checkFirstNameBlank(firstName)
+  checkLastNameBlank(lastName)
+  validateEmail(email)
+  checkEmailBlank(email)
+  checkPasswordBlank(password)
+})
 
-  if (form.lastName.value.trim() === ""){
-      showError("last-name-error", "Last Name cannot be empty") // Envia para a função "showError" o nome da classe, e a mensangem que irá aparecer
-      return false; // Irá parar a função
-  };
+function checkFirstNameBlank(input){
+  if (input.value.trim() === ""){ // verificar se o campo está vazio e remove os espaços
+    showError("first-name-error", "First Name cannot be empty") // envia a essa mensagem de erro
+}
+}
 
-  if (form.mail.value.trim() === ""){
-      showError("email-error", "Email cannot be empty") // Envia para a função "showError" o nome da classe, e a mensangem que irá aparecer
-      return false; // Irá parar a função
-  };
+function checkLastNameBlank(input){
+  if (input.value.trim() === ""){// verificar se o campo está vazio e remove os espaços
+    showError("last-name-error", "Last Name cannot be empty") // envia a essa mensagem de erro
+}
+}
 
-  if (form.password.value.trim() === ""){
-      showError("password", "Password cannot be empty") // Envia para a função "showError" o nome da classe, e a mensangem que irá aparecer
-      return false; // Irá parar a função
-  };
+function checkEmailBlank(input){
+  if (input.value.trim() === ""){// verificar se o campo está vazio e remove os espaços
+    showError("email-error", "Email cannot be empty") // envia a essa mensagem de erro
+}
+}
+
+function validateEmail(input) { // Verifica se é um formato de e-mail valido utilizando regexp
+  const emailRegexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (!emailRegexp.test(input.value.trim())) { // realiza o teste e inverte o resultado
+    showError("email-error", "Looks like this is not an email"); // envia essa mensagem de erroo
+  }
+}
+
+function checkPasswordBlank(input) {
+  if (input.value.trim() === ""){ // verificar se o campo está vazio e remove os espaços
+    showError("password-error", "Password cannot be empty") // envia a essa mensagem de erro
+}
 }
