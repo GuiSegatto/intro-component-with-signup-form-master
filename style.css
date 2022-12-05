@@ -209,4 +209,12 @@ main {
 .sign-up-container .submit-button:hover{
     background-color: hsl(154, 65%, 60%);
 }
+
+.attribution {
+    font-size: 0.95rem;
+}
+
+footer {
+    max-width: 100%;
+}
 }
