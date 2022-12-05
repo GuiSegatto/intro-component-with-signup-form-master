@@ -91,6 +91,8 @@ input::placeholder {
     color: hsl(246, 25%, 77%);
 }
 
+
+
 .sign-up-container .submit-button {
     background-color: hsl(154, 59%, 51%);
     border: 0;
@@ -133,6 +135,13 @@ input::placeholder {
 .error.display-error{
     display: block;
 }
+
+form .input-error {
+    border: 1.5px hsl(0, 100%, 74%) solid;
+    background: url(./images/icon-error.svg) no-repeat 96% 50%;
+
+}
+
 
 
 @media only screen and (min-width: 900px) {
